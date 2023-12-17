@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -57,7 +54,7 @@ public class PatientService {
 
     public void createPatient(PatientRequest patientRequest) {
         Patient patient = Patient.builder()
-                .patientNumber(patientRequest.getPatientNumber())
+                .patientNumber(UUID.randomUUID().toString())
                 .firstName(patientRequest.getFirstName())
                 .lastName(patientRequest.getLastName())
                 .gender(patientRequest.getGender())
