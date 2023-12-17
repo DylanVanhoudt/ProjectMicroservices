@@ -22,7 +22,7 @@ public class PaymentController {
         paymentService.createPayment(paymentRequest);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<PaymentResponse> getAllPayments() {
         return paymentService.getAllPayments();

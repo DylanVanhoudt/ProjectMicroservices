@@ -91,10 +91,10 @@ spring:
         - id: payment-service-all
           uri: http://${PAYMENT_SERVICE_BASEURL:localhost:8082}
           predicates:
-            - Path=/payments
+            - Path=/payments/all
             - Method=GET
           filters:
-            - SetPath=/api/payment
+            - SetPath=/api/payment/all
         - id: payment-service-by-appointment-number
           uri: http://${PAYMENT_SERVICE_BASEURL:localhost:8082}
           predicates:
