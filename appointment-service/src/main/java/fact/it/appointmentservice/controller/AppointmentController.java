@@ -28,9 +28,9 @@ public class AppointmentController {
         return appointmentService.getAllAppointments();
     }
 
-    @GetMapping("/patient/{patientNumber}")
+    @GetMapping("/patient")
     @ResponseStatus(HttpStatus.OK)
-    public List<AppointmentResponse> getAllAppointmentsByPatientNumber(@PathVariable String patientNumber) {
+    public List<AppointmentResponse> getAllAppointmentsByPatientNumber(@RequestParam String patientNumber) {
         return appointmentService.getAllAppointmentsByPatientNumber(patientNumber);
     }
 }

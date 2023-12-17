@@ -29,21 +29,21 @@ public class PatientController {
         return patientService.getAllPatients();
     }
 
-    @GetMapping("/{patientNumber}")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PatientResponse getPatientByPatientNumber(@PathVariable("patientNumber") String patientNumber) {
+    public PatientResponse getPatientByPatientNumber(@RequestParam String patientNumber) {
         return patientService.getPatientByPatientNumber(patientNumber);
     }
 
-    @PutMapping("/{patientNumber}")
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public void updatePatient(@PathVariable("patientNumber") String patientNumber, @RequestBody PatientRequest patientRequest) {
+    public void updatePatient(@RequestParam String patientNumber, @RequestBody PatientRequest patientRequest) {
         patientService.updatePatient(patientNumber, patientRequest);
     }
 
-    @DeleteMapping("/{patientNumber}")
+    @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletePatient(@PathVariable("patientNumber") String patientNumber) {
+    public void deletePatient(@RequestParam String patientNumber) {
         patientService.deletePatient(patientNumber);
     }
 }

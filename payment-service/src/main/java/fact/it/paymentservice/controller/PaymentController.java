@@ -28,15 +28,15 @@ public class PaymentController {
         return paymentService.getAllPayments();
     }
 
-    @GetMapping("/{appointmentNumber}")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<PaymentResponse> getAllPaymentsByAppointmentNumber(@PathVariable String appointmentNumber) {
+    public List<PaymentResponse> getAllPaymentsByAppointmentNumber(@RequestParam String appointmentNumber) {
         return paymentService.getAllPaymentsByAppointmentNumber(appointmentNumber);
     }
 
-    @PutMapping("/{paymentNumber}")
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public void updatePayment(@PathVariable String paymentNumber, @RequestBody PaymentRequest paymentRequest) {
+    public void updatePayment(@RequestParam String paymentNumber, @RequestBody PaymentRequest paymentRequest) {
         paymentService.updatePayment(paymentNumber, paymentRequest);
     }
 }

@@ -42,24 +42,24 @@ spring:
         - id: patient-service-by-number
           uri: http://${PATIENT_SERVICE_BASEURL:localhost:8080}
           predicates:
-            - Path=/patients/**
+            - Path=/patients
             - Method=GET
           filters:
-            - SetPath=/api/patient/{segment}
+            - SetPath=/api/patient
         - id: patient-service-update
           uri: http://${PATIENT_SERVICE_BASEURL:localhost:8080}
           predicates:
-            - Path=/patients/**
+            - Path=/patients
             - Method=PUT
           filters:
-            - SetPath=/api/patient/{segment}
+            - SetPath=/api/patient
         - id: patient-service-delete
           uri: http://${PATIENT_SERVICE_BASEURL:localhost:8080}
           predicates:
-            - Path=/patients/**
+            - Path=/patients
             - Method=DELETE
           filters:
-            - SetPath=/api/patient/{segment}
+            - SetPath=/api/patient
         - id: appointment-service-create
           uri: http://${APPOINTMENT_SERVICE_BASEURL:localhost:8081}
           predicates:
@@ -77,10 +77,10 @@ spring:
         - id: appointment-service-by-patient-number
           uri: http://${APPOINTMENT_SERVICE_BASEURL:localhost:8081}
           predicates:
-            - Path=/appointments/patient/**
+            - Path=/appointments/patient
             - Method=GET
           filters:
-            - SetPath=/api/appointment/patient/{segment}
+            - SetPath=/api/appointment/patient
         - id: payment-service-create
           uri: http://${PAYMENT_SERVICE_BASEURL:localhost:8082}
           predicates:
@@ -98,14 +98,14 @@ spring:
         - id: payment-service-by-appointment-number
           uri: http://${PAYMENT_SERVICE_BASEURL:localhost:8082}
           predicates:
-            - Path=/payments/**
+            - Path=/payments
             - Method=GET
           filters:
-            - SetPath=/api/payment/{segment}
+            - SetPath=/api/payment
         - id: payment-service-update
           uri: http://${PAYMENT_SERVICE_BASEURL:localhost:8082}
           predicates:
-            - Path=/payments/**
+            - Path=/payments
             - Method=PUT
           filters:
-            - SetPath=/api/payment/{segment}
+            - SetPath=/api/payment
